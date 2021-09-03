@@ -1,0 +1,53 @@
+
+
+h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+h6{
+    font-family: cursive
+}
+
+h2{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+.a{
+    align-content: center;
+    border-radius: 80px;
+}
+
+.aa{
+    margin: 40px;
+    font-weight:  bold;
+    font-size: 15px;
+}
+
+.as{
+    font-weight: bold;
+}
+
+.ad{
+    background-color: grey;
+    padding: 8px;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 10px;
+
+    
+}
+
+.ad:hover{
+    background-color: white;
+}
+
+p{
+    font-size:large;
+}
+
+.image_1 {
+    margin: auto;
+    display: block;
+    border-radius: 1000px;
+}
