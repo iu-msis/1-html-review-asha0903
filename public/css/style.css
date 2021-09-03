@@ -44,10 +44,35 @@ h2{
 
 p{
     font-size:large;
+    font-weight: bold;
 }
 
-.image_1 {
+#image_1 {
     margin: auto;
     display: block;
     border-radius: 1000px;
+}
+
+.thumbnail{
+    margin-right: 50px;
+}
+
+
+div.item {
+    /* To correctly align image, regardless of content height: */
+    vertical-align: top;
+    display: inline-block;
+    /* To horizontally center images and caption */
+    text-align: center;
+    /* The width of the container also implies margin around the images. */
+    width: 120px;
+}
+img {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+}
+.caption {
+    /* Make the caption a block so it occupies its own line. */
+    display: block;
 }
