@@ -8,6 +8,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Adding Vue js-->
+
+    <script src="https://unpkg.com/vue@next"></script>
+
     <title>Hello, world!</title>
   </head>
   <body>
@@ -51,28 +56,42 @@
       <br>
       <br>
   <br>
+  <div id="app">
 
-      <img  src="img/pic.jpeg" id="image_1" >
-
+      <!-- <img  v-bind:href = "person.picture.medium" > -->
+      <div id="image_1">
+      <a v-bind:href = "person.picture.large" target="_blank" > <img v-bind:src="person.picture.large" alt="Photo" width="150" height="150"></a>
+    </div>
   
     <br>
-
+        
     <h2  class="text-center">Hi, My Name is </h2>
 <!-- 
     
 
     <h2 class="text-center">Hope </h2> -->
-
+  
     <div class="row">
         <div class="col"><hr></div>
-        <div class="col-auto" style="text-decoration: solid;">HOPE</div>
+       
+        <div class="col-auto" style="text-decoration: solid;">{{person.name.first}} {{person.name.last}}</div>
+   
+          
         <div class="col"><hr></div>
     </div>
 
-    <h4  class="text-center"> Place I'm found: Florida  |  First cried on: 26th May  |  Age: 28 </h4>
+    <h4  class="text-center"> Origin: {{person.location.country}}  |  DOB: {{person.dob.date[5]+person.dob.date[6]+person.dob.date[7]+person.dob.date[8]+person.dob.date[9]}}  |  Age: {{person.dob.age}} </h4>
     <br>
+    <h6  class="text-center" style="font-family:'Courier New', Courier, monospace;">
+    Email: <a v-bind:href="'mailto:' + person.email">
+      {{person.email }}
+    </a>
 
-
+    
+  <br>
+    Contact: {{person.phone}}
+  
+  </h6>
     <ol class="list-group list-group-numbered">
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
@@ -115,7 +134,7 @@
 
 
 
-    <div class="text-center">
+    <!-- <div class="text-center">
       <p  style="font-family:'Courier New', Courier, monospace;">
           <h2>Contact</h2>
           Email: <a href="mailto:hope@example.com"> hope@example.com </a>
@@ -124,18 +143,33 @@
 
       </p>
   
-  </div>
+  </div> -->
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 <hr>
+
+</div>
 <footer class="text-center">
     Hope Hope Hope.  |  2231 Fairway Ln  | Golden Springs, Sc 29915 | (987)-654-3210
 
 </footer>
 
 <br>
+
+<!-- Import App -->
+<script src="./js/index.js"></script>
+
+
+
+
+
+<!-- Mount App -->
+<script>
+  const mountedApp = app.mount('#app')
+</script>
+
 
   </body>
 </html>
