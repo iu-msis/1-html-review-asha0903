@@ -51,11 +51,12 @@ p{
     margin: auto;
     display: block;
     border-radius: 1000px;
+    text-align: center;
 }
 
-.thumbnail{
-    margin-right: 50px;
-}
+/* .thumbnail{
+    margin-right: 60px;
+} */
 
 
 div.item {
@@ -67,11 +68,11 @@ div.item {
     /* The width of the container also implies margin around the images. */
     width: 120px;
 }
-img {
+/* img {
     width: 100px;
     height: 100px;
-    background-color: grey;
-}
+    background-color: grey; */
+/* } */
 .caption {
     /* Make the caption a block so it occupies its own line. */
     display: block;
