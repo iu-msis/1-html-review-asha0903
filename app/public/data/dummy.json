@@ -1,0 +1,23 @@
+{
+    "info":[
+        {
+            "name": "Hope",
+            "country":"USA",
+            "birthday":"26 May",
+            "age":"28",
+            "email":"hope@example.com",
+            "phone":"8976578779"
+            
+        },
+        {
+            "name": "Ann",
+            "country":"India",
+            "birthday":"09 March",
+            "age":"26",
+            "email":"ann@example.com",
+            "phone":"2342342343"
+            
+
+        }
+    ]
+}
