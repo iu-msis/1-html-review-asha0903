@@ -33,21 +33,30 @@ const app=Vue.createApp({
         }
 
     },
+
+    methods:{
+        fetchUserData(){
+
+            console.log("A")
+            fetch('https://randomuser.me/api/')
+            .then(response => response.json())
+            .then((responseJson) => {
+                console.log(responseJson);   //for debugging
+                console.log("C")
+        
+                this.person =responseJson.results[0];
+            })
+        
+            .catch((err) => {
+                console.error(err);
+            })
+            console.log("B")
+        }
+    },
     
 created(){
 
-    fetch('https://randomuser.me/api/')
-    .then(response => response.json())
-    .then((responseJson) => {
-        console.log(responseJson);   //for debugging
-
-        this.person =responseJson.results[0];
-    })
-
-    .catch((err) => {
-        console.error(err);
-    })
-
+   this.fetchUserData();
     }
 })
 

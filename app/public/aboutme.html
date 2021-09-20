@@ -64,18 +64,28 @@
     </div>
   
     <br>
-        
-
+<div style="text-align: center;">
+    <form v-on:submit.prevent="fetchUserData">
+      <button class="button"  type="submit">Refresh</button>
+    </form>
+  </div>
 
 
     <h2  class="text-center">Hi, My Name is </h2>
+
+    
 <!-- 
     
 
     <h2 class="text-center">Hope </h2> -->
   
     <div class="row">
+      
+
+
         <div class="col"><hr></div>
+
+        
        
         <div class="col-auto" style="text-decoration: solid;">{{person.name.first}} {{person.name.last}}</div>
    
