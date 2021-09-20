@@ -60,11 +60,14 @@
 
       <!-- <img  v-bind:href = "person.picture.medium" > -->
       <div id="image_1">
-      <a v-bind:href = "person.picture.large" target="_blank" > <img v-bind:src="person.picture.large" alt="Photo" width="150" height="150"></a>
+      <a v-bind:href = "person.picture.large" target="_blank" > <img v-bind:src="person.picture.thumbnail" alt="Photo" width="150" height="150"></a>
     </div>
   
     <br>
         
+
+
+
     <h2  class="text-center">Hi, My Name is </h2>
 <!-- 
     
@@ -80,7 +83,7 @@
         <div class="col"><hr></div>
     </div>
 
-    <h4  class="text-center"> Origin: {{person.location.country}}  |  DOB: {{person.dob.date[5]+person.dob.date[6]+person.dob.date[7]+person.dob.date[8]+person.dob.date[9]}}  |  Age: {{person.dob.age}} </h4>
+    <h4  class="text-center"> Origin: {{person.location.country}}  |  DOB: {{prettyBirthday}}  |  Age: {{person.dob.age}} </h4>
     <br>
     <h6  class="text-center" style="font-family:'Courier New', Courier, monospace;">
     Email: <a v-bind:href="'mailto:' + person.email">
@@ -158,6 +161,8 @@
 
 <br>
 
+
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
 <!-- Import App -->
 <script src="./js/index.js"></script>
 
