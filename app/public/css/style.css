@@ -25,8 +25,11 @@ h2{
 }
 
 .as{
+    font-size: 18px;
+    text-align: center;
     font-weight: bold;
 }
+
 
 .ad{
     background-color: grey;
@@ -130,3 +133,27 @@ th[role=columnheader]:not(.no-sort):hover:after {
     text-align: center;
     cursor: pointer;
   }
+
+
+.sss {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    
+    background-color: black;
+    color: #ddd;
+    margin: auto;
+    
+    
+    text-align: center;
+  }
+
+  .txt{
+    word-wrap: break-word;
+  }
+
+  
+  
+

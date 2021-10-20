@@ -4,8 +4,9 @@ const Offer = {
 
         return {
 
-            books : [],
-            offerForm: {},
+            "books" : [],
+            "offers": [],
+            "offerForm": {},
             selectedOffer : null
 
         }
@@ -25,31 +26,22 @@ const Offer = {
             return "$ " + d;
         },
 
-        fetchBooksData() {
+        fetchBookData() {
             fetch('/api/books/')
-
-            .then( response => response.json() )
-
-            .then( (responseJson) => {
-
-                console.log(responseJson);
-
-                this.books = responseJson;
-
+            .then(response => response.json())
+            .then((parsedJson) => {
+                console.log(parsedJson);
+                this.books = parsedJson
             })
-
-            .catch( (err) => {
-
-                console.error(err);
-
-            });
-
+            .catch( err => {
+                console.error(err)
+            })
         },
 
         postNewOffer(evt) {
             // this.offerForm.studentId = this.selectedStudent.id;        
             // console.log("Posting:", this.offerForm);
-            // // alert("Posting!");
+            //  alert("Posting!");
     
             fetch('api/books/create.php', {
                 method:'POST',
@@ -82,7 +74,7 @@ const Offer = {
 
     created(){
 
-        this.fetchBooksData();
+        this.fetchBookData();
 
     }
 

@@ -16,8 +16,6 @@
     <title>Hello, world!</title>
   </head>
   <body>
-
-  
     
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         
@@ -29,10 +27,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link " href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="aboutme.html">About me</a>
+                <a class="nav-link "  href="aboutme.html">About me</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="table.html">Book Collection</a>
@@ -43,6 +41,8 @@
             
           </div>
 
+          
+
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-secondary" type="submit">Search</button>
@@ -51,61 +51,149 @@
         </div>
 
     
-      </nav>
-
-      
+      </nav>    
 
       <br>
       <br>
+  <br>
 
-      
+  <div id="offerApp">
     <h1  class="text-center">Data And Systems Books</h1>
 
-    <br>
+    <table id="taskTable" class="table" >
 
-    <div id="offerApp">
+      <thead>
+        <tr>
+          <th scope="col">Sr No</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Year Published</th>
+          <th scope="col">Publisher</th>
+          <th scope="col">Page Count</th>
+          <th scope="col">MSRP</th>
+        </tr>
+      </thead>
 
-      <table id="taskTable" class="table" >
+      <tbody>
+        <tr v-for="b in books">
+            <td>{{ b.id }}</td>
+            <td>{{ b.title }}</td>
+            <td>{{ b.author}}</td>
+            <td>{{ b.year_published }}</td>
+            <td>{{ b.publisher }}</td>
+            <td>{{ b.page_count }}</td>
+            <td>{{ prettyDollar(b.msrp) }}</td>
+            <td>
+              <button type="button" v-on:click="selectOfferToEdit(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
+            </td>
+            </tr>
 
-        <thead>
-          <tr>
-            <th scope="col">Sr No</th>
-            <th scope="col">Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Year Published</th>
-            <th scope="col">Publisher</th>
-            <th scope="col">Page Count</th>
-            <th scope="col">MSRP</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr v-for="b in books">
-              <td>{{ b.id }}</td>
-              <td>{{ b.title }}</td>
-              <td>{{ b.author}}</td>
-              <td>{{ b.year_published }}</td>
-              <td>{{ b.publisher }}</td>
-              <td>{{ b.page_count }}</td>
-              <td>{{ b.msrp}}</td>
-              </tr>
-
-            
-              
-          <!-- </tr> -->
-        </tbody>
+      </tbody>
 
 
-      </table>
+    </table>
 
+
+
+<!-- <h3>{{ selectedOffer === null ? "Add " : "Edit " }} Offer</h3> -->
+
+
+<div class="sss" >
+  <form v-on:submit.prevent="postNewOffer">
+
+    <div class="mb-3" >
+      <label for="title" class="form-label" >Title:</label>
+      <input type="text" v-model="offerForm.title"
+       class="form-control" id="title" >
     </div>
+
+    <div class="mb-3" >
+      <label for="author" class="form-label" >Author:</label>
+      <input type="text" v-model="offerForm.author"
+       class="form-control" id="author">
+    </div>
+
+    <div class="mb-3">
+      <label for="year_published" class="form-label">Year Published:</label>
+      <input type="text" v-model="offerForm.year_published"
+       class="form-control" id="year_published">
+    </div>
+
+    <div class="mb-3">
+      <label for="publisher" class="form-label">Publisher:</label>
+      <input type="text" v-model="offerForm.publisher"
+       class="form-control" id="publisher">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="page_count" class="form-label">Page Count:</label>
+      <input type="number" v-model="offerForm.page_count"
+       class="form-control" id="page_count">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="msrp" class="form-label">MSRP:</label>
+      <input type="number" v-model="offerForm.msrp"
+       class="form-control" id="msrp">
+    </div>  
+      <br>
+            <br>
+            <input class="ad" type="submit" value="Add"><br>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <br>
+<!-- 
+            <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Offer</button>
+            <button type="button" class="btn btn-outline-secondary" 
+               v-if="selectedOffer"
+               v-on:click="handleResetEdit">Cancel Edit</button> -->
+      </form>
+    </div>
+
+
+    <div class="container-fluid">
+      
+        
+      <div class="fw-bold">CITATIONS</div>
+      <div class="txt">
+      * Figure 1: https://www.amazon.com/Big-Data-Principles-practices-scalable/dp/1617290343/ref=sr_1_9?dchild=1&keywords=big+data&qid=1630706917&sr=8-9
+      <br>
+      * Figure 2: https://www.amazon.com/Distributed-Data-Systems-Azure-Databricks/dp/183864721X/ref=sr_1_11?dchild=1&keywords=distributed+data+systems&qid=1630708423&s=books&sr=1-11
+      <br>
+      * Figure 3: https://www.amazon.com/Data-Smart-Science-Transform-Information/dp/111866146X/ref=sr_1_1?dchild=1&keywords=data+smart&qid=1630708460&s=books&sr=1-1
+      
+      <br>
+      * Figure 4: https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sxin_13_birs_cobar_search?cv_ct_cx=distributed&dchild=1&keywords=distributed&pd_rd_i=1449373321&pd_rd_r=06a50bad-c5bd-4819-9dbd-723025ea503f&pd_rd_w=hKL9S&pd_rd_wg=AvPld&pf_rd_p=7ebe70b4-2f7d-488b-87d1-db69c709cb19&pf_rd_r=CCFB2RDVYM7ZPQC5HYZA&qid=1630708311&sr=1-1-86e09153-50e6-4ad8-8ff3-4f3aa0180b7d
+  </div>
+  </div>
+
+  
     
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<hr>
 
-    <script src="js/books.js"></script>
+</div>
 
-    
+
+
+
+<footer class="text-center">
+    Hope Hope Hope.  |  2231 Fairway Ln  | Golden Springs, Sc 29915 | (987)-654-3210
+
+</footer>
+
+<br>
+
+
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
+<!-- Import App -->
+<script src="js/books.js"></script>
+
+
+
+
   </body>
 </html>
