@@ -84,8 +84,10 @@
             <td>{{ b.page_count }}</td>
             <td>{{ prettyDollar(b.msrp) }}</td>
             <td>
-              <button type="button" v-on:click="selectOfferToEdit(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
-              <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm"
+                            v-on:click="selectOfferToEdit(b)">Edit</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm"
+                            v-on:click="postDeleteOffer(b)">Delete</button>
             </td>
             </tr>
 
@@ -96,22 +98,22 @@
 
 
 
-<!-- <h3>{{ selectedOffer === null ? "Add " : "Edit " }} Offer</h3> -->
+<h3 class="text-center">{{ selectedOffer === null ? "Add " : "Edit " }} Offer</h3>
 
 
 <div class="sss" >
-  <form v-on:submit.prevent="postNewOffer">
+  <form v-on:submit.prevent="postOffer">
 
     <div class="mb-3" >
-      <label for="title" class="form-label" >Title:</label>
+      <label for="title" class="form-label" >Title:<span class="reqd">*</span></label>
       <input type="text" v-model="offerForm.title"
-       class="form-control" id="title" >
+       class="form-control" id="title" required="required" >
     </div>
 
     <div class="mb-3" >
       <label for="author" class="form-label" >Author:</label>
       <input type="text" v-model="offerForm.author"
-       class="form-control" id="author">
+       class="form-control" id="author" >
     </div>
 
     <div class="mb-3">
@@ -139,22 +141,16 @@
       <input type="number" v-model="offerForm.msrp"
        class="form-control" id="msrp">
     </div>  
-      <br>
-            <br>
-            <input class="ad" type="submit" value="Add"><br>
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-            <br>
-<!-- 
-            <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Offer</button>
-            <button type="button" class="btn btn-outline-secondary" 
-               v-if="selectedOffer"
-               v-on:click="handleResetEdit">Cancel Edit</button> -->
+              <button type="submit" class="btn">{{ selectedOffer === null ? "Add " : "Edit " }} Offer</button>
+              <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+              <br>
+              <br>
       </form>
-    </div>
+</div>
 
 
     <div class="container-fluid">
-      
+      <br>
         
       <div class="fw-bold">CITATIONS</div>
       <div class="txt">
@@ -166,16 +162,12 @@
       
       <br>
       * Figure 4: https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sxin_13_birs_cobar_search?cv_ct_cx=distributed&dchild=1&keywords=distributed&pd_rd_i=1449373321&pd_rd_r=06a50bad-c5bd-4819-9dbd-723025ea503f&pd_rd_w=hKL9S&pd_rd_wg=AvPld&pf_rd_p=7ebe70b4-2f7d-488b-87d1-db69c709cb19&pf_rd_r=CCFB2RDVYM7ZPQC5HYZA&qid=1630708311&sr=1-1-86e09153-50e6-4ad8-8ff3-4f3aa0180b7d
-  </div>
-  </div>
-
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-
+      </div>
+    </div>
 <hr>
 
 </div>
+
 
 
 
@@ -187,13 +179,11 @@
 
 <br>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
 <!-- Import App -->
 <script src="js/books.js"></script>
-
-
-
 
   </body>
 </html>

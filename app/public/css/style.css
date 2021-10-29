@@ -154,6 +154,16 @@ th[role=columnheader]:not(.no-sort):hover:after {
     word-wrap: break-word;
   }
 
+.btn {
+    background-color: gray;
+    color: black;
+    margin: 10px;
+}
+
+.btn:hover{
+    background-color: whitesmoke;
+    color: black;
+}
   
   
 
